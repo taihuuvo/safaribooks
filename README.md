@@ -11,7 +11,7 @@ Before any usage please read the *O'Reilly*'s [Terms of Service](https://learnin
 
 ## Requirements & Setup:
 ```shell
-$ git clone https://github.com/lorenzodifuccia/safaribooks.git
+$ git clone https://github.com/taihuuvo/safaribooks.git
 Cloning into 'safaribooks'...
 
 $ cd safaribooks/
@@ -70,8 +70,8 @@ optional arguments:
   --help               Show this help message.
 ```
   
-The first time you use the program, you'll have to specify your Safari Books Online account credentials (look [`here`](/../../issues/15) for special character).
-The next times you'll download a book, before session expires, you can omit the credential, because the program save your session cookies in a file called `cookies.json` (for **SSO** look the file format [`here`](/../../issues/2#issuecomment-367726544)). 
+The first time you use the program, you'll have to specify your Safari Books Online account credentials (look [`here`](https://github.com/lorenzodifuccia/safaribooks/issues/15) for special character).
+The next times you'll download a book, before session expires, you can omit the credential, because the program save your session cookies in a file called `cookies.json` (for **SSO** look the file format [`here`](https://github.com/lorenzodifuccia/safaribooks/issues/2#issuecomment-367726544)). 
   
 Pay attention if you use a shared PC, because everyone that has access to your files can steal your session. 
 If you don't want to cache the cookies, just use the `--no-cookies` option and provide all time your `--cred`.
@@ -81,7 +81,7 @@ You can configure proxies by setting on your system the environment variables `H
 The program default options are thought for ensure best compatibilities for who want to export the `EPUB` to E-Readers like Amazon Kindle. If you want to do it, I suggest you to convert the `EPUB` to `AZW3` with [Calibre](https://calibre-ebook.com/).  
 You can also convert the book to `MOBI` and if you'll do it with Calibre be sure to select `Ignore margins` in the conversion options:  
   
-![Calibre IgnoreMargins](https://github.com/lorenzodifuccia/cloudflare/raw/master/Images/safaribooks/safaribooks_calibre_IgnoreMargins.png "Select Ignore margins")  
+![Calibre IgnoreMargins](https://github.com/taihuuvo/raw/master/Images/safaribooks/safaribooks_calibre_IgnoreMargins.png "Select Ignore margins")  
 
 In the other hand, if you're not going to export the `EPUB`, you can use the `--no-kindle` option to remove the CSS that blocks overflow on `table` and `pre` elements, see below in the examples.  
   
@@ -125,16 +125,10 @@ In the other hand, if you're not going to export the `EPUB`, you can use the `--
     [-] Creating EPUB file...                                                       
     [*] Done: Test-Driven Development with Python, 2nd Edition.epub                 
 
-        If you like it, please * this project on GitHub to make it known:
-            https://github.com/lorenzodifuccia/safaribooks
-        e don't forget to renew your Safari Books Online subscription:
-            https://www.safaribooksonline.com/signup/
-
-    [!] Bye!!
     ```  
      The result will be (opening the `EPUB` file with Calibre):  
 
-    ![Book Appearance](https://github.com/lorenzodifuccia/cloudflare/raw/master/Images/safaribooks/safaribooks_example01_TDD.png "Book opened with Calibre")  
+    ![Book Appearance](https://github.com/taihuuvo/safaribooks/raw/master/Images/safaribooks_example01_TDD.png "Book opened with Calibre")  
  
   * ## Use or not the `--no-kindle` option:
     ```bash
@@ -142,11 +136,15 @@ In the other hand, if you're not going to export the `EPUB`, you can use the `--
     ```  
     On the left book created with `--no-kindle` option, on the right without (default):  
     
-    ![NoKindle Option](https://github.com/lorenzodifuccia/cloudflare/raw/master/Images/safaribooks/safaribooks_example02_NoKindle.png "Version compare")  
+    ![NoKindle Option](https://github.com/taihuuvo/safaribooks/raw/master/Images/safaribooks_example02_NoKindle.png "Version compare")  
     
 ---  
   
-## Thanks!!
-For any kind of problem, please don't hesitate to open an issue here on *GitHub*.  
-  
-*Lorenzo Di Fuccia*
+## How to get the cookies
+Paste the following code into Console of web inspector (F12) in firefox or chrome to get cookie, then copy the output and paste into cookies.json
+```shell
+var output = {};document.cookie.split(/\s*;\s*/).forEach(function(pair) {pair = pair.split(/\s*=\s*/);output[pair[0]] = pair.splice(1).join('=');});console.log(JSON.stringify(output));
+```  
+
+## Credits
+This repository is forked from Lorenzo Di Fuccia github.
